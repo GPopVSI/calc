@@ -16,7 +16,6 @@ S_plate_12 = 360.51  # секция 12
 h_1st_floor = 0.22  # Высота перекрытия над подвалом
 
 
-# Стены 1-го этажа
 class Wall:
     def __init__(self, s=0.0, h=3.430):
         self.square_wall = s
@@ -26,6 +25,7 @@ class Wall:
         return self.square_wall * self.height_wall
 
 
+# Стены 1-го этажа
 print("Объем стен для 1-го этажа (без учёта проёма)")
 Walls_1 = Wall(42.514)
 print("Секция 1 =", Walls_1.volume(), "м3")
@@ -48,14 +48,13 @@ print("Секция 9 и 10 =", Walls_9_10.volume(), "м3")
 Walls_11 = Wall(34.818)
 print("Секция 11 =", Walls_11.volume(), "м3")
 Walls_12 = Wall(36.1)
-print("Секция 12 =", Walls_12.volume(), "м3\n")
+print("Секция 12 =", Walls_12.volume(), "м3")
 total_walls_volume_without_hole = Walls_1.volume() + Walls_2.volume() + Walls_3.volume() + Walls_4.volume() + \
                                   Walls_5.volume() + Walls_6.volume() + Walls_7.volume() + Walls_8.volume() + \
                                   Walls_9_10.volume() + Walls_11.volume() + Walls_12.volume()
-print("Объем стен для 1-го этажа (без учёта проёма)", round(total_walls_volume_without_hole, 2))
+print("Объем стен для 1-го этажа (без учёта проёма)", round(total_walls_volume_without_hole, 2), '\n')
 
 
-# Проёмы 1-го этажа
 class Hole_wall:
     def __init__(self, L=0.0, w=0.2, h=0.0):
         self.long_hole = L
@@ -66,7 +65,8 @@ class Hole_wall:
         return self.long_hole * self.width_hole * self.height_hole
 
 
-print("Объем проёмов для 1-го этажа\n")
+# Проёмы 1-го этажа
+print("Объем проёмов для 1-го этажа")
 
 hole_type1 = Hole_wall(1.8, 0.2, 2.3)
 amount_hole_type1 = 33
@@ -205,7 +205,7 @@ holes_walls = total_hole_type1 + total_hole_type2 + total_hole_type3 + total_hol
               total_hole_type21 + total_hole_type22 + total_hole_type23 + total_hole_type24 + total_hole_type25 + \
               total_hole_type26
 total_walls_volume_with_hole = total_walls_volume_without_hole - holes_walls
-print("Объем стен 1-го этажа с учётом проёмов", total_walls_volume_with_hole, "м3\n")
+print("-Объем стен 1-го этажа с учётом проёмов =", total_walls_volume_with_hole, "м3")
 
 
 class Plate:
@@ -233,5 +233,146 @@ V_plate_section_1_12_level_1 = Plate_section_1_level_1.volume() + Plate_section_
                                Plate_section_3_level_1.volume() + Plate_section_4_level_1.volume() + \
                                Plate_section_5_level_1.volume() + Plate_section_6_level_1.volume() + \
                                Plate_section_7_level_1.volume() + Plate_section_8_level_1.volume() + \
-                               Plate_section_9_10_level_1.volume() + Plate_section_12_level_1.volume()
-print("Объем перекрытий над 1-м этажом с учётом отверстий", V_plate_section_1_12_level_1, "м3\n")
+                               Plate_section_9_10_level_1.volume() + Plate_section_11_level_1.volume() + \
+                               Plate_section_12_level_1.volume()
+print("-Объем перекрытий над 1-м этажом с учётом отверстий =", V_plate_section_1_12_level_1, "м3\n")
+
+# Стены типового этажа typical level (номер секции в названии переменной). Высота 2.8
+print("Объем стен для типового этажа (без учёта проёмов)")
+Walls_1_typical_level = Wall(34.834, 2.8)
+print("Секция 1 =", Walls_1_typical_level.volume(), "м3")
+Walls_2_typical_level = Wall(34.997, 2.8)
+print("Секция 2 =", Walls_2_typical_level.volume(), "м3")
+Walls_3_typical_level = Wall(27.09, 2.8)
+print("Секция 3 =", Walls_3_typical_level.volume(), "м3")
+Walls_4_typical_level = Wall(31.822, 2.8)
+print("Секция 4 =", Walls_4_typical_level.volume(), "м3")
+Walls_5_typical_level = Wall(31.228, 2.8)
+print("Секция 5 =", Walls_5_typical_level.volume(), "м3")
+Walls_6_typical_level = Wall(33.804, 2.8)
+print("Секция 6 =", Walls_6_typical_level.volume(), "м3")
+Walls_7_typical_level = Wall(32.045, 2.8)
+print("Секция 7 =", Walls_7_typical_level.volume(), "м3")
+Walls_8_typical_level = Wall(35.54, 2.8)
+print("Секция 8 =", Walls_8_typical_level.volume(), "м3")
+Walls_9_10_typical_level = Wall(55.348, 2.8)
+print("Секция 9 и 10 =", Walls_9_10_typical_level.volume(), "м3")
+Walls_11_typical_level = Wall(28.894, 2.8)
+print("Секция 11 =", Walls_11_typical_level.volume(), "м3")
+Walls_12_typical_level = Wall(29.372, 2.8)
+print("Секция 12 =", Walls_12_typical_level.volume(), "м3")
+total_walls_volume_typical_level_without_hole = Walls_1_typical_level.volume() + Walls_2_typical_level.volume() + \
+                                                Walls_3_typical_level.volume() + Walls_4_typical_level.volume() + \
+                                                Walls_5_typical_level.volume() + Walls_6_typical_level.volume() + \
+                                                Walls_7_typical_level.volume() + Walls_8_typical_level.volume() + \
+                                                Walls_9_10_typical_level.volume() + Walls_11_typical_level.volume() + \
+                                                Walls_12_typical_level.volume()
+print("-Объем стен для 1-го этажа (без учёта проёма) =", round(total_walls_volume_typical_level_without_hole, 2), 'м3')
+
+# Проёмы типового этажа
+hole_type27_typical_level = Hole_wall(0.95, 0.2, 2.32)
+amount_hole_type27_typical_level = 30
+total_hole_type27_typical_level = hole_type27_typical_level.volume() * amount_hole_type27_typical_level
+print("27. Проёмы 950x2320", amount_hole_type27_typical_level, "шт =", total_hole_type27_typical_level, "м3")
+
+hole_type28_typical_level = Hole_wall(1.0, 0.2, 1.77)
+amount_hole_type28_typical_level = 14
+total_hole_type28_typical_level = hole_type28_typical_level.volume() * amount_hole_type28_typical_level
+print("28. Проёмы 1000x1770", amount_hole_type28_typical_level, "шт =", total_hole_type28_typical_level, "м3")
+
+hole_type29_typical_level = Hole_wall(0.55, 0.2, 1.77)
+amount_hole_type29_typical_level = 2
+total_hole_type29_typical_level = hole_type29_typical_level.volume() * amount_hole_type29_typical_level
+print("29. Проёмы 550x1770", amount_hole_type29_typical_level, "шт =", total_hole_type29_typical_level, "м3")
+
+hole_type30_typical_level = Hole_wall(1.2, 0.2, 2.32)
+amount_hole_type30_typical_level = 11
+total_hole_type30_typical_level = hole_type30_typical_level.volume() * amount_hole_type30_typical_level
+print("30. Проёмы 1200x2320", amount_hole_type30_typical_level, "шт =", total_hole_type30_typical_level, "м3")
+
+hole_type31_typical_level = Hole_wall(0.8, 0.2, 1.77)
+amount_hole_type31_typical_level = 1
+total_hole_type31_typical_level = hole_type31_typical_level.volume() * amount_hole_type31_typical_level
+print("31. Проёмы 800x1770", amount_hole_type31_typical_level, "шт =", total_hole_type31_typical_level, "м3")
+
+hole_type32_typical_level = Hole_wall(1.8, 0.2, 1.77)
+amount_hole_type32_typical_level = 6
+total_hole_type32_typical_level = hole_type32_typical_level.volume() * amount_hole_type32_typical_level
+print("32. Проёмы 1800x1770", amount_hole_type32_typical_level, "шт =", total_hole_type32_typical_level, "м3")
+
+hole_type33_typical_level = Hole_wall(0.9, 0.2, 2.1)
+amount_hole_type33_typical_level = 31
+total_hole_type33_typical_level = hole_type33_typical_level.volume() * amount_hole_type33_typical_level
+print("33. Проёмы 900x2100", amount_hole_type33_typical_level, "шт =", total_hole_type33_typical_level, "м3")
+
+hole_type34_typical_level = Hole_wall(0.95, 0.2, 2.1)
+amount_hole_type34_typical_level = 1
+total_hole_type34_typical_level = hole_type34_typical_level.volume() * amount_hole_type34_typical_level
+print("34. Проёмы 950x2100", amount_hole_type34_typical_level, "шт =", total_hole_type34_typical_level, "м3")
+
+hole_type35_typical_level = Hole_wall(1.05, 0.2, 2.1)
+amount_hole_type35_typical_level = 74
+total_hole_type35_typical_level = hole_type35_typical_level.volume() * amount_hole_type35_typical_level
+print("35. Проёмы 1050x2100", amount_hole_type35_typical_level, "шт =", total_hole_type35_typical_level, "м3")
+
+hole_type36_typical_level = Hole_wall(1.36, 0.2, 2.1)
+amount_hole_type36_typical_level = 12
+total_hole_type36_typical_level = hole_type36_typical_level.volume() * amount_hole_type36_typical_level
+print("36. Проёмы 1360x2100", amount_hole_type36_typical_level, "шт =", total_hole_type36_typical_level, "м3")
+
+hole_type37_typical_level = Hole_wall(0.7, 0.2, 2.1)
+amount_hole_type37_typical_level = 1
+total_hole_type37_typical_level = hole_type37_typical_level.volume() * amount_hole_type37_typical_level
+print("37. Проёмы 700x2100", amount_hole_type37_typical_level, "шт =", total_hole_type37_typical_level, "м3")
+
+hole_type38_typical_level = Hole_wall(0.6, 0.2, 2.1)
+amount_hole_type38_typical_level = 24
+total_hole_type38_typical_level = hole_type38_typical_level.volume() * amount_hole_type38_typical_level
+print("38. Проёмы 600x2100", amount_hole_type38_typical_level, "шт =", total_hole_type38_typical_level, "м3")
+
+hole_type39_typical_level = Hole_wall(1.5, 0.2, 2.1)
+amount_hole_type39_typical_level = 1
+total_hole_type39_typical_level = hole_type39_typical_level.volume() * amount_hole_type39_typical_level
+print("39. Проёмы 1500x2100", amount_hole_type39_typical_level, "шт =", total_hole_type39_typical_level, "м3")
+
+hole_type40_typical_level = Hole_wall(1.2, 0.2, 2.1)
+amount_hole_type40_typical_level = 1
+total_hole_type40_typical_level = hole_type40_typical_level.volume() * amount_hole_type40_typical_level
+print("40. Проёмы 1200x2100", amount_hole_type40_typical_level, "шт =", total_hole_type40_typical_level, "м3")
+
+hole_type41_typical_level = Hole_wall(1.2, 0.2, 1.77)
+amount_hole_type41_typical_level = 1
+total_hole_type41_typical_level = hole_type41_typical_level.volume() * amount_hole_type41_typical_level
+print("41. Проёмы 1200x1770", amount_hole_type41_typical_level, "шт =", total_hole_type41_typical_level, "м3\n")
+
+holes_walls_typical_level = total_hole_type27_typical_level + total_hole_type28_typical_level + \
+                            total_hole_type29_typical_level + total_hole_type30_typical_level + \
+                            total_hole_type31_typical_level + total_hole_type32_typical_level + \
+                            total_hole_type33_typical_level + total_hole_type34_typical_level + \
+                            total_hole_type35_typical_level + total_hole_type36_typical_level + \
+                            total_hole_type37_typical_level + total_hole_type38_typical_level + \
+                            total_hole_type39_typical_level + total_hole_type40_typical_level + \
+                            total_hole_type41_typical_level
+total_walls_volume_typical_level_with_hole = total_walls_volume_typical_level_without_hole - holes_walls_typical_level
+print("-Объем стен типового этажа с учётом проёмов =", total_walls_volume_typical_level_with_hole, "м3")
+
+# Плита типового этажа
+# Плита над 1-м этажом
+Plate_section_1_level_typical = Plate(437.72)
+Plate_section_2_level_typical = Plate(440.128)
+Plate_section_3_level_typical = Plate(344.514)
+Plate_section_4_level_typical = Plate(388.39)
+Plate_section_5_level_typical = Plate(419.46)
+Plate_section_6_level_typical = Plate(445.71)
+Plate_section_7_level_typical = Plate(433.398)
+Plate_section_8_level_typical = Plate(429.991)
+Plate_section_9_10_level_typical = Plate(684.34)
+Plate_section_11_level_typical = Plate(343.401)
+Plate_section_12_level_typical = Plate(379.809)
+V_plate_sect_1_12_level_typical = Plate_section_1_level_typical.volume() + Plate_section_2_level_typical.volume() + \
+                                  Plate_section_3_level_typical.volume() + Plate_section_4_level_typical.volume() + \
+                                  Plate_section_5_level_typical.volume() + Plate_section_6_level_typical.volume() + \
+                                  Plate_section_7_level_typical.volume() + Plate_section_8_level_typical.volume() + \
+                                  Plate_section_9_10_level_typical.volume() + Plate_section_11_level_typical.volume() + \
+                                  Plate_section_12_level_typical.volume()
+print("-Объем перекрытий типового этажа с учётом отверстий =", V_plate_sect_1_12_level_typical, "м3\n")
