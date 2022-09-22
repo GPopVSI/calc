@@ -15,12 +15,22 @@ square_2_3 = 334.1 + 27.34 + 11.55 - 1.995 - 0.22 - 0.313 * 17 - 0.49  # Пло�
 square_3_3 = 334.1 + 27.34 + 11.55 - 1.995 - 0.22 - 0.313 * 17 - 0.49 + 10.31  # Площадь для грунтовки
 # print(square_1_3, square_2_3, square_3_3)
 # Потолок
-square_top = (4.2 + 1.3) * 2.34
+square_top = (4.2 + 1.3 + 0.36) * 2.34
 # Зеркальная
 square_insulation = square_1_1 + square_1_2 + square_1_3
 square_grunt = square_3_1 + square_3_2 + square_3_3
-square_plaster = square_2_1 + square_2_2 + square_2_3
-print('Утеплитель м2 = ', square_insulation)
-print('Грунтовка м2 = ', square_grunt)
-print('Штукатурка м2 = ', square_plaster)
+
+
+# Заново
+# Утеплитель
+square_insul = 16.19 * 4.02 + 56.62 * 14.44 + 4.2 * 2.75 * 2 - 1.995 - 17 * 0.313 - 0.493
+print('Утеплитель м2 = ', square_insul)
 print('Потолок штукатурка м2 = ', square_top)
+# Штукатурка боковой поверхности марша
+square_side_ladder = 0.73 + 0.71 + 1.608 * 16 + 2.025 + 0.26 * 0.15 + 0.26 * 0.2 * 37 + 1.27 * 0.26
+print('Штукатурка бок м2 = ', square_side_ladder)
+# Штукатурка нижней поверхности марша
+square_bottom_ladder = 2.33 + 2.34 * 17 + 5.66 + 2.57 + 3.31 + 3.63 * 16 + 2.75
+print('Штукатурка низ м2 = ', square_bottom_ladder)
+square_plaster = square_side_ladder + square_insul + square_bottom_ladder
+print('Штукатурка м2 = ', square_plaster)
