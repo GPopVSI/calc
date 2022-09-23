@@ -30,7 +30,7 @@ print('Потолок штукатурка м2 = ', square_top)
 square_side_ladder = 0.73 + 0.71 + 1.608 * 16 + 2.025 + 0.26 * 0.15 + 0.26 * 0.2 * 37 + 1.27 * 0.26
 print('Штукатурка бок м2 = ', square_side_ladder)
 # Штукатурка нижней поверхности марша
-square_bottom_ladder = 2.33 + 2.34 * 17 + 5.66 + 2.57 + 3.31 + 3.63 * 16 + 2.75
+square_bottom_ladder = 2.33 + 2.34 * 17 + 5.66 + 2.57 + 3.31 + 3.63 * 16 + 2.75 + 136.1 * 1.05
 print('Штукатурка низ м2 = ', square_bottom_ladder)
 square_plaster = square_side_ladder + square_insul + square_bottom_ladder
 print('Штукатурка м2 = ', square_plaster)
